@@ -1,32 +1,47 @@
+ #!/bin/bash 
 isInstalled(){
   command -v $1 >/dev/null 2>&1 || command -v $2 >/dev/null 2>&1 || { echo >&2 "I require $1 but it's not installed.  Aborting."; return false;}  
 }
 
 installNode() {
-  if [[ !isInstalled('node', 'nodejs') ]]; then
+  if ! isInstalled 'node' 'nodejs'; then
     echo "Node is not installed. Installing..."
-    echo prefix = ~/local >> ~/.npmrc
     curl https://www.npmjs.org/install.sh | sh
   fi
 }
 
-isLinux(){
-  if [[ "$OSTYPE" == "linux-gnu" ]]; then
-    return true;
-  fi
-  return false;
+installBower()
+{
+
+   if ! isInstalled 'npm'; then
+     echo "Npm is not installed. Installing..."
+     curl -L https://npmjs.org/install.sh | sh
+   else
+     echo "Npm is installed. Checcking Bower..."
+      if ! isInstalled 'bower'; then
+        echo "Bower is not installed. Installing..."
+        npm install -g bower
+      fi
+   fi
+
 }
 
-isMac(){
-  if [[ "$OSTYPE" == "darwin"* ]]; then
-    return true;
+installSusy()
+{
+
+  if ! isInstalled 'npm'; then
+     echo "Npm is not installed. Installing..."
+     curl -L https://npmjs.org/install.sh | sh
+   else
+     echo "Npm is installed. Checcking Susy..."
+     if ! isInstalled 'susy'; then
+       echo "Susy is not installed. Installing..."
+       npm install susy
+     fi
   fi
-  return false;
+
 }
 
 installNode
-
-// if this is a repository, ignore this
-  git clone $2 $1
-  cd $1
-  // replace username of the fork with the 'Emergya' substring to make the git remote add *
+installBower
+installSusy
