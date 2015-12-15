@@ -1,10 +1,10 @@
  #!/bin/bash 
 isInstalled(){
-  command -v $1 >/dev/null 2>&1 || command -v $2 >/dev/null 2>&1 || { echo >&2 "I require $1 but it's not installed.  Aborting."; return false;}  
+  command -v $1 >/dev/null 2>&1 || { echo >&2 "I require $1 but it's not installed.  Aborting."; return 0; }  
 }
 
 installNode() {
-  if ! isInstalled 'node' 'nodejs'; then
+  if ! isInstalled 'node'; then
     echo "Node is not installed. Installing..."
     curl https://www.npmjs.org/install.sh | sh
   fi
