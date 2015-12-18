@@ -15,12 +15,12 @@ echo "node inside if";
 installBower()
 {
 
-   if [ ! isInstalled 'npm' ]; then
+   if ! [ isInstalled 'npm' ]; then
      echo "Npm is not installed. Installing..."
      curl -L https://npmjs.org/install.sh | sh
    else
      echo "Npm is installed. Checcking Bower..."
-      if [ ! isInstalled 'bower' ]; then
+      if ! [ isInstalled 'bower' ]; then
         echo "Bower is not installed. Installing..."
         npm install -g bower
       fi
