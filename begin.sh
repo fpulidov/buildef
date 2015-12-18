@@ -10,7 +10,6 @@ installNode() {
     echo "Node is not installed. Installing..."
     curl https://www.npmjs.org/install.sh | sh
   fi
-  fi
 }
 
 installBower()
