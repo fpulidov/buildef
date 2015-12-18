@@ -6,6 +6,7 @@ isInstalled(){
 installNode() {
 echo "node";
   if ! isInstalled 'node'; then
+echo "node inside if";
     echo "Node is not installed. Installing..."
     curl https://www.npmjs.org/install.sh | sh
   fi
