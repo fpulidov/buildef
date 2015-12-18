@@ -4,7 +4,7 @@ isInstalled(){
 }
 
 installNode() {
-  if ! [ isInstalled 'node' ]; then
+  if ! [ isInstalled 'node' ] ; then
     echo "Node is not installed. Installing..."
     curl https://www.npmjs.org/install.sh | sh
   fi
@@ -13,12 +13,12 @@ installNode() {
 installBower()
 {
 
-   if ! [ isInstalled 'npm' ]; then
+   if ! [ isInstalled 'npm' ] ; then
      echo "Npm is not installed. Installing..."
      curl -L https://npmjs.org/install.sh | sh
    else
      echo "Npm is installed. Checcking Bower..."
-      if ! [ isInstalled 'bower' ]; then
+      if ! [ isInstalled 'bower' ] ; then
         echo "Bower is not installed. Installing..."
         npm install -g bower
       fi
@@ -29,12 +29,12 @@ installBower()
 installSusy()
 {
 
-  if ! [ isInstalled 'npm' ]; then
+  if ! [ isInstalled 'npm' ] ; then
      echo "Npm is not installed. Installing..."
      curl -L https://npmjs.org/install.sh | sh
    else
      echo "Npm is installed. Checcking Susy..."
-     if ! [ isInstalled 'susy' ]; then
+     if ! [ isInstalled 'susy' ] ; then
        echo "Susy is not installed. Installing..."
        npm install susy
      fi
