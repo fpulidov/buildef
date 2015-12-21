@@ -6,7 +6,8 @@ isInstalled(){
 installNode() {
   if ! [ isInstalled "npm" ] ; then
     echo "Node is not installed. Installing..."
-    curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash -   
+    apt-get update
+    apt-get install nodejs -y
   fi
 }
 
