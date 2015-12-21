@@ -4,11 +4,9 @@ isInstalled(){
 }
 
 installNode() {
-  if isInstalled 'node' ; then
-    echo "Node is installed"
-  else
+  if ! [ isInstalled 'npm' ] ; then
     echo "Node is not installed. Installing..."
-    curl https://www.npmjs.org/install.sh | sh
+    curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash -
   fi
 }
 
