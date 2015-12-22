@@ -4,7 +4,7 @@ isInstalled(){
 }
 
 installNode() {
-  if ! [ isInstalled "npm" ] ; then
+  if ! [ isInstalled "node" ] ; then
     echo "Node is not installed. Installing..."
     apt-get update
     apt-get install nodejs -y
