@@ -1,6 +1,6 @@
  #!/bin/bash 
 isInstalled(){
-  command -v $1 >/dev/null 2>&1 return 1; || { echo >&2 "I require $1 but it's not installed.  Aborting."; return 0; }  
+  command -v $1 >/dev/null 2>&1 return 1 || { echo >&2 "I require $1 but it's not installed.  Aborting."; return 0; }  
 }
 
 installNode() {
